@@ -8,8 +8,8 @@ class Browserist < Formula
   license "Apache-2.0"
 
   depends_on "python@3.10"
+  depends_on cask: "chromedriver"
   depends_on "selenium-server"
-  depends_on :cask => "chromedriver"
 
   def install
     virtualenv_install_with_resources
