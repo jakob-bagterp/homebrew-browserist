@@ -9,7 +9,7 @@ class Browserist < Formula
 
   depends_on "python@3.10"
   depends_on "selenium-server"
-  depends_on :cask => "chromedriver" => :recommended
+  depends_on :cask => "chromedriver"
 
   def install
     virtualenv_install_with_resources
