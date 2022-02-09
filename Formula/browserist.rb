@@ -7,7 +7,6 @@ class Browserist < Formula
   sha256 "03f89419a0b636c19c979f7bd3ae85043e5da452cabb955e60cd1d576b121db3"
   license "Apache-2.0"
 
-  depends_on cask: "chromedriver"
   depends_on "python@3.10"
   depends_on "selenium-server"
 
