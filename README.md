@@ -2,7 +2,7 @@
 This repository is a Homebrew tap of 👩‍💻 [Browserist extension for Selenium](https://github.com/jakob-bagterp/browserist) 👨‍💻.
 
 # How to Install
-If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, use this terminal command to tap Timer for Python:
+If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap Timer for Python:
 
 ```shell
 brew tap jakob-bagterp/browserist
