@@ -3,8 +3,8 @@ class Browserist < Formula
 
   desc "Extension for the Selenium web driver that makes browser automation even easier"
   homepage "https://github.com/jakob-bagterp/browserist"
-  url "https://github.com/jakob-bagterp/browserist/releases/download/v0.6.1/browserist-0.6.1.tar.gz"
-  sha256 "55f6101c91f053f4a01c1e63f20f44c17f72f1a4ffec4ae4e4725f0a6844471f"
+  url "https://github.com/jakob-bagterp/browserist/releases/download/v0.6.2/browserist-0.6.2.tar.gz"
+  sha256 "62c7945fb8596c297bad7d21cb0591bbf1c7eafc14db17b645cd6cfb85c002e5"
   license "Apache-2.0"
 
   depends_on "python@3.10"
