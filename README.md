@@ -22,4 +22,4 @@ And then install:
 brew install browserist
 ```
 
-For other methods of installation and more information, go to the [project page](https://github.com/jakob-bagterp/browserist).
+For other methods of installation and more information, go to the [project page](http://jakob-bagterp.github.io/browserist/).
