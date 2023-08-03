@@ -7,7 +7,7 @@
 [![Downloads](https://static.pepy.tech/badge/browserist)](https://pepy.tech/project/browserist)
 
 # About
-This repository is a Homebrew tap of 👩‍💻 [Browserist extension for Selenium](https://github.com/jakob-bagterp/browserist) 👨‍💻.
+This repository is a Homebrew tap of 👩‍💻 [Browserist extension for Selenium](https://jakob-bagterp.github.io/browserist/) 👨‍💻.
 
 # How to Install
 If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap Timer for Python:
@@ -22,4 +22,4 @@ And then install:
 brew install browserist
 ```
 
-For other methods of installation and more information, go to the [project page](http://jakob-bagterp.github.io/browserist/).
+For other methods of installation and more information, go to the [project page](https://jakob-bagterp.github.io/browserist/).
