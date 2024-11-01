@@ -1,17 +1,20 @@
-name: brew pr-pull
+name: Homebrew tap pull request bot
+
 on:
   pull_request_target:
     types:
       - labeled
+
 jobs:
-  pr-pull:
+  brew-pr-pull:
+    name: Homebrew pull request bottles
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
     runs-on: ubuntu-latest
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Set up git
+      - name: Set up Git
         uses: Homebrew/actions/git-user-config@master
 
       - name: Pull bottles

@@ -1,11 +1,14 @@
-name: brew test-bot
+name: Homebrew tap test bot
+
 on:
   push:
     branches:
       - master
   pull_request:
+
 jobs:
-  test-bot:
+  brew-test-bot:
+    name: Homebrew test bot
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
@@ -15,7 +18,7 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Cache Homebrew Bundler RubyGems
+      - name: Cache Homebrew bundler RubyGems
         id: cache
         uses: actions/cache@v4
         with:
@@ -23,7 +26,7 @@ jobs:
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ runner.os }}-rubygems-
 
-      - name: Install Homebrew Bundler RubyGems
+      - name: Install Homebrew bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
 
@@ -36,7 +39,7 @@ jobs:
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
-      - name: Upload bottles as artifact
+      - name: Upload Homebrew bottles as artifact
         if: always() && github.event_name == 'pull_request'
         uses: actions/upload-artifact@main
         with:
