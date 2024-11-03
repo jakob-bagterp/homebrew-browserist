@@ -67,7 +67,6 @@ jobs:
   update-version-badge:
     name: Update version badge in README.md
     runs-on: ubuntu-latest
-    needs: bump-homebrew-formula
     permissions:
       contents: write
       pull-requests: write
@@ -83,7 +82,6 @@ jobs:
         run: git diff --patch --stat
 
       - name: Commit changes and create pull request
-        id: update-version-badge-pull-request
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: "Updated version badge to ${{ env.FORMULA_NEW_VERSION }}"
