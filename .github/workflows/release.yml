@@ -93,6 +93,9 @@ jobs:
           delete-branch: true
           token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
 
+      - name: Wait for pre-commit checks to complete
+        run: sleep 10
+
       - name: Try to enable auto-merge of pull request and delete branch
         env:
           GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
