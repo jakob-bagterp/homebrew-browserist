@@ -66,6 +66,7 @@ jobs:
 
   update-version-badge:
     name: Update version badge in README.md
+    needs: bump-homebrew-formula
     runs-on: ubuntu-latest
     permissions:
       contents: write
