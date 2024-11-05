@@ -42,7 +42,7 @@ jobs:
       - name: Update Homebrew formula
         uses: mislav/bump-homebrew-formula-action@v3
         env:
-          COMMITTER_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
+          COMMITTER_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           formula-name: ${{ env.FORMULA_NAME }}
@@ -56,7 +56,7 @@ jobs:
 
       - name: Try to enable auto-merge of pull request and delete branch
         env:
-          GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
         run: | # Ignore errors if pull request can't be merged. Then we just have to do it manually.
           sleep 2
           PULL_REQUEST_NUMBER=$(gh pr list --json number --jq ".[0].number" || echo "")
@@ -91,11 +91,11 @@ jobs:
           labels: enhancement
           base: master
           delete-branch: true
-          token: ${{ secrets.COMMITTER_TOKEN }}
+          token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
 
       - name: Try to enable auto-merge of pull request and delete branch
         env:
-          GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
         run: | # Ignore errors if pull request can't be merged. Then we just have to do it manually.
           sleep 2
           PULL_REQUEST_NUMBER=$(gh pr list --json number --jq ".[0].number" || echo "")
