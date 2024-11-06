@@ -54,7 +54,7 @@ jobs:
           create-pullrequest: true
           commit-message: Updated formula to version ${{ env.FORMULA_NEW_VERSION }}
 
-      - name: Wait for pre-commit checks to complete
+      - name: Give pre-commit a little time to start running to prevent error
         run: sleep 10
 
       - name: Try to enable auto-merge of pull request and delete branch
@@ -97,7 +97,7 @@ jobs:
           delete-branch: true
           token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
 
-      - name: Wait for pre-commit checks to complete
+      - name: Give pre-commit a little time to start running to prevent error
         run: sleep 10
 
       - name: Try to enable auto-merge of pull request and delete branch
