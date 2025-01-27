@@ -7,7 +7,7 @@ class Browserist < Formula
   sha256 "3bd13816bb70a18813ee643d0daa1e4833b26b9f4f7696948119125030ae3c85"
   license "Apache-2.0"
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "selenium-server"
 
   def install
