@@ -1,5 +1,8 @@
 name: Homebrew tap test bot
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
