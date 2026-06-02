@@ -18,9 +18,21 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - name: Set up Linux sandbox dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update && sudo apt-get install -y bubblewrap
+          sudo sysctl -w kernel.unprivileged_userns_clone=1 || true
+          sudo sysctl -w user.max_user_namespaces=28633 || true
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
+
+      - name: Trust the Homebrew tap
+        run: brew trust ${{ github.repository }}
+
       - name: Cache Homebrew bundler RubyGems
         id: cache
         uses: actions/cache@v5
@@ -28,6 +40,7 @@ jobs:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ runner.os }}-rubygems-
+
       - name: Install Homebrew bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
@@ -36,6 +49,7 @@ jobs:
       - run: brew test-bot --only-tap-syntax
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
+
       - name: Upload Homebrew bottles as artifact
         if: always() && github.event_name == 'pull_request'
         uses: actions/upload-artifact@main
